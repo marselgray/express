@@ -58,22 +58,24 @@ app.get('/', function(req, res){
 app.post('/users/add', function(req, res){
 
     req.checkBody('book_title', 'Book Title is Required').notEmpty();
-    req.checkBody('author_lastName', 'Author\'s Last Name is Required').notEmpty();
+    req.checkBody('author_Name', 'Author\'s Name is Required').notEmpty();
     req.checkBody('subject', 'Subject is required').notEmpty();
 
     var errors = req.validationErrors();
 
     if(errors){
+        db.users.find(function (err, users) {
         res.render('index', {
             title: 'Books I\'ve Read',
             users: users,
             errors: errors
         });
+    })
     } else {
         var newUser = {
             book_title: req.body.book_title,
-            last_name: req.body.author_lastName,
-            email: req.body.subject
+            author_Name: req.body.author_Name,
+            subject: req.body.subject
         }
         db.users.insert(newUser, function(err, result){
             if(err){

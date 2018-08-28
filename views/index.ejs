@@ -13,7 +13,7 @@
         <input type='text' name='book_title'>
         <br>
         <label>Author's Last Name</label><br>
-        <input type='text' name='author_lastName'>
+        <input type='text' name='author_Name'>
         <br>
         <label>Subject</label><br>
         <input type='text' name='subject'>
@@ -25,8 +25,8 @@
     <ul> 
     <% users.forEach(function(user){ %>
         <li><%= user.book_title %> 
-            <%= user.author_lastName %>
-            <%= user.subject %> 
+            by <%= user.author_Name %>
+            on the matter of <%= user.subject %> 
             -<a href='#' class='deleteBook' data-id='<%= user._id%>'> 
                 Delete </a></li>
     <%}) %>
