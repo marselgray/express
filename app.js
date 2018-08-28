@@ -49,7 +49,7 @@ app.get('/', function(req, res){
     db.users.find(function(err, docs){
         console.log(docs);
         res.render('index', {
-            title: 'Books I\'ve Read',
+            title: 'Books I\'ve Read This Year',
             users: docs,
         });
     })
