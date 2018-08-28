@@ -4,6 +4,7 @@ var path = require('path');
 var expressValidator = require('express-validator');
 var mongojs = require('mongojs');
 var db = mongojs('express', ['users'])
+var ObjectId = mongojs.ObjectId
 
 var app = express();
 
@@ -56,9 +57,9 @@ app.get('/', function(req, res){
 
 app.post('/users/add', function(req, res){
 
-    req.checkBody('first_name', 'First Name is Required').notEmpty();
-    req.checkBody('last_name', 'Last Name is Required').notEmpty();
-    req.checkBody('email', 'Email is Required').notEmpty();
+    req.checkBody('book_title', 'Book Title is Required').notEmpty();
+    req.checkBody('author_lastName', 'Author\'s Last Name is Required').notEmpty();
+    req.checkBody('subject', 'Subject is required').notEmpty();
 
     var errors = req.validationErrors();
 
@@ -70,9 +71,9 @@ app.post('/users/add', function(req, res){
         });
     } else {
         var newUser = {
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email
+            book_title: req.body.book_title,
+            last_name: req.body.author_lastName,
+            email: req.body.subject
         }
         db.users.insert(newUser, function(err, result){
             if(err){
@@ -84,7 +85,12 @@ app.post('/users/add', function(req, res){
 
 
 app.delete('/users/delete/:id', function(req, res){
-    console.log(req.params.id);
+    db.users.remove({_id: ObjectId(req.params.id)}, function(err, result){
+        if(err){
+            console.log(err)
+        }
+        res.redirect('/');
+    });
 });
 
 

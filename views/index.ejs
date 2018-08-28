@@ -9,14 +9,14 @@
         </ul>
     <%} %>
     <form method='POST' action='/users/add'>
-        <label>First Name</label><br>
-        <input type='text' name='first_name'>
+        <label>Book Title</label><br>
+        <input type='text' name='book_title'>
         <br>
-        <label>Last Name</label><br>
-        <input type='text' name='last_name'>
+        <label>Author's Last Name</label><br>
+        <input type='text' name='author_lastName'>
         <br>
-        <label>Email</label><br>
-        <input type='text' name='email'>
+        <label>Subject</label><br>
+        <input type='text' name='subject'>
         <br><br>
         <input type='submit' value='Submit'>
     </form>
@@ -24,8 +24,10 @@
     <h1> <%= title %> </h1>
     <ul> 
     <% users.forEach(function(user){ %>
-        <li><%= user.first_name %> 
-            <%= user.last_name %> -<a href='#' class='deleteBook' data-id='<%= user._id%>'> 
+        <li><%= user.book_title %> 
+            <%= user.author_lastName %>
+            <%= user.subject %> 
+            -<a href='#' class='deleteBook' data-id='<%= user._id%>'> 
                 Delete </a></li>
     <%}) %>
     </ul>

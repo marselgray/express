@@ -19,4 +19,5 @@ A good resource on HTTP methods can be found here:
 https://medium.com/@suhas_chatekar/why-you-should-use-the-recommended-http-methods-in-your-rest-apis-981359828bf7
 
 npm install 
-app.js
+nodemon
+server is file app.js
