@@ -1,0 +1,24 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "simple express app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marselgray/express.git"
+  },
+  "author": "Marsel Gray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marselgray/express/issues"
+  },
+  "homepage": "https://github.com/marselgray/express#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
+  }
+}
