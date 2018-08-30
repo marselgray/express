@@ -98,6 +98,6 @@ app.delete('/users/delete/:id', function(req, res){
 
 
 //port 
-app.listen(3000, function(){
-    console.log('yo server running, so dope.')
-})
+// app.listen(3000, function(){
+//     console.log('yo server running, so dope.')
+// })
