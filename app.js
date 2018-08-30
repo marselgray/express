@@ -101,3 +101,5 @@ app.delete('/users/delete/:id', function(req, res){
 // app.listen(3000, function(){
 //     console.log('yo server running, so dope.')
 // })
+
+app.listen(process.env.PORT || 5000)
