@@ -5,6 +5,7 @@ var expressValidator = require('express-validator');
 var mongojs = require('mongojs');
 var db = mongojs('express', ['users'])
 var ObjectId = mongojs.ObjectId
+const PORT = process.env.PORT || 5000
 
 var app = express();
 
@@ -102,4 +103,4 @@ app.delete('/users/delete/:id', function(req, res){
 //     console.log('yo server running, so dope.')
 // })
 
-app.listen(process.env.PORT || 5000)
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
